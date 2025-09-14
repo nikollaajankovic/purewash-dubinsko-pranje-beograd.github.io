@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="PureWash - profesionalno dubinsko pranje nameštaja, tepiha i auto enterijera u Beogradu.">
+
+<title>PureWash - Dubinsko pranje</title>
+<link rel="icon" href="./Slike/logo.png" type="image/png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.1/dist/simple-lightbox.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="./CSS/stajl.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+<!-- Header -->
+<header id="header" class="bg-white shadow-md sticky top-0 z-40 sticky-header">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <img src="./Slike/logo.png" alt="PureWash Logo" class="h-20"> <!-- veći logo -->
+
+    <!-- Hamburger dugme -->
+    <button id="menu-btn" class="md:hidden flex flex-col space-y-1 focus:outline-none">
+      <span class="block w-6 h-0.5 bg-gray-800"></span>
+      <span class="block w-6 h-0.5 bg-gray-800"></span>
+      <span class="block w-6 h-0.5 bg-gray-800"></span>
+    </button>
+
+    <!-- Desktop meni -->
+    <nav class="hidden md:flex space-x-8 font-semibold text-lg"> <!-- veći font -->
+      <a href="#o-meni" class="hover:text-blue-600">O meni</a>
+      <a href="#usluge" class="hover:text-blue-600">Usluge</a>
+      <a href="#galerija" class="hover:text-blue-600">Galerija</a>
+      <a href="#recenzije" class="hover:text-blue-600">Recenzije</a>
+      <a href="#faq" class="hover:text-blue-600">Pitanja</a>
+      <a href="#kontakt" class="hover:text-blue-600">Kontakt</a>
+    </nav>
+  </div>
+  
+
+  <!-- Mobilni meni -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg border-t border-gray-200">
+    <nav class="flex flex-col space-y-4 p-6 font-semibold">
+      <a href="#o-meni" class="hover:text-blue-600">O meni</a>
+      <a href="#usluge" class="hover:text-blue-600">Usluge</a>
+      <a href="#galerija" class="hover:text-blue-600">Galerija</a>
+      <a href="#recenzije" class="hover:text-blue-600">Recenzije</a>
+      <a href="#faq" class="hover:text-blue-600">Pitanja</a>
+      <a href="#kontakt" class="hover:text-blue-600">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="bg-blue-600 text-white text-center py-24 relative overflow-hidden">
+  <div class="max-w-3xl mx-auto animate-fadeInUp">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6">PureWash</h1>
+    <p class="text-xl mb-8">Profesionalno dubinsko pranje nameštaja i tepiha</p>
+    <a href="https://wa.me/381638200243" target="_blank" class="bg-white text-blue-600 font-bold py-3 px-6 rounded-full shadow-md hover:bg-gray-100 transition inline-flex items-center">
+      <img src="./Slike/Viber_WhatApp_ikone/whatsapplogo.png" alt="WhatsApp" class="w-6 h-6 mr-2">Zakazi preko WhatsApp
+    </a>
+    <a href="viber://chat?number=%2B381638200243" target="_blank" class="bg-purple-600 text-white font-bold py-3 px-6 rounded-full shadow-md hover:bg-purple-700 transition inline-flex items-center ml-4">
+      <img src="./Slike/Viber_WhatApp_ikone/viberlogo.png" alt="Viber" class="w-6 h-6 mr-2">Zakazi preko Viber
+    </a>
+  </div>
+</section>
+
+<!-- O meni -->
+<section id="o-meni" class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center animate-fadeInUp">
+  <img src="./Slike/moja_slika.jpg" alt="Vlasnik" class="rounded-2xl shadow-lg" height="500px" width="300px">
+  <div>
+    <h2 class="text-3xl font-bold mb-4">O meni</h2>
+    <p class="list-disc list-inside text-lg mb-4">
+      Zovem se Nikola Janković i pružam profesionalne usluge dubinskog pranja nameštaja, tepiha i auto enterijera. Moja strast je da svaki prostor učinim čistim, svežim i zdravim, vraćajući vašem nameštaju i vozilu originalni sjaj. Cilj mi je da svaki klijent bude potpuno zadovoljan, a vaš dom ili automobil mesto u kome se uživa u čistom i prijatnom okruženju.
+    </p>
+    <ul class="list-disc list-inside text-lg mb-4">
+      <li>Radim na teritoriji: Novi Beograd, Zemun, Surčin</li>
+      <li>Brzo i efikasno čišćenje</li>
+      <li>Garancija zadovoljstva</li>
+    </ul>
+
+    <!-- Leaflet mapa -->
+    <div id="map" class="mt-6 rounded-2xl overflow-hidden shadow-lg" style="height: 300px;"></div>
+  </div>
+</section>
+
+<section id="usluge" class="py-16 bg-gray-50">
+  <div class="px-4">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Cenovnik usluga</h2>
+
+    <!-- Flex + gap + centriranje -->
+    <div class="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
+
+      <!-- Nameštaj -->
+      <div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-xl transition text-center w-80">
+        <img src="https://img.icons8.com/color/96/sofa.png" 
+             alt="Sofa" class="w-16 h-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold mb-4 text-blue-600">Dubinsko pranje nameštaja</h3>
+        <ul class="space-y-3 text-gray-700 text-left">
+          <li class="flex justify-between"><span>Dvosed</span> <b>1500 RSD</b></li>
+          <li class="flex justify-between"><span>Trosed</span> <b>2000 RSD</b></li>
+          <li class="flex justify-between"><span>Francuski ležaj</span> <b>2000 RSD</b></li>
+          <li class="flex justify-between"><span>Fotelja</span> <b>1000 RSD</b></li>
+          <li class="flex justify-between"><span>Dušek jednostrano</span> <b>1500 RSD</b></li>
+          <li class="flex justify-between"><span>Dušek dvostrano</span> <b>2000 RSD</b></li>
+          <li class="flex justify-between"><span>Bračni dušek jednostrano</span> <b>2000 RSD</b></li>
+          <li class="flex justify-between"><span>Bračni dušek dvostrano</span> <b>2500 RSD</b></li>
+          <li class="flex justify-between">Tepih (po m²)<b>330 RSD</b></li>
+          <li class="flex justify-between">Otirač<b>400 RSD</b></li>
+          <li class="flex justify-between">Tabure<b>800 RSD</b></li>
+        </ul>
+      </div>
+
+      <!-- Dečija oprema -->
+      <div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-xl transition text-center w-80">
+        <img src="https://img.icons8.com/color/96/baby-bottle.png" 
+             alt="Bebi oprema" class="w-16 h-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold mb-4 text-blue-600">Dečija oprema</h3>
+        <ul class="space-y-3 text-gray-700 text-left">
+          <li class="flex justify-between"><span>Kolica za bebe</span> <b>2500 RSD</b></li>
+          <li class="flex justify-between"><span>Auto sedište</span> <b>1500 RSD</b></li>
+          <li class="flex justify-between"><span>Bebi dušek</span> <b>1500 RSD</b></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Galerija -->
+<section id="galerija" class="bg-gray-100 py-20 animate-fadeInUp">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">Galerija – Pre i Posle</h2>
+    <div class="grid md:grid-cols-3 gap-8 mb-12 gallery">
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika1.png"><img src="./Slike/Pranje_Pre_Posle/slika1.png" alt="Sofa" class="rounded-xl w-full h-40 object-cover hover-zoom"></a>
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika2.png"><img src="./Slike/Pranje_Pre_Posle/slika2.png" alt="Auto" class="rounded-xl w-full h-40 object-cover hover-zoom"></a>
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika3.png"><img src="./Slike/Pranje_Pre_Posle/slika3.png" alt="Tepih" class="rounded-xl w-full h-40 object-cover hover-zoom"></a>
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika4.png"><img src="./Slike/Pranje_Pre_Posle/slika4.png" alt="Stolica" class="rounded-xl w-full h-40 object-cover hover-zoom"></a>
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika5.png"><img src="./Slike/Pranje_Pre_Posle/slika5.png" alt="Dušek" class="rounded-xl w-full h-40 object-cover hover-zoom"></a>
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika6.png"><img src="./Slike/Pranje_Pre_Posle/slika6.png" alt="Nameštaj" class="rounded-xl w-full h-40 object-cover hover-zoom"></a>
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika7.png"><img src="./Slike/Pranje_Pre_Posle/slika7.png" alt="Nameštaj" class="rounded-xl w-full h-40 object-cover hover-zoom"></a>
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika8.png"><img src="./Slike/Pranje_Pre_Posle/slika8.png" alt="Nameštaj" class="rounded-xl w-full h-40 object-cover hover-zoom"></a>
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika9.png"><img src="./Slike/Pranje_Pre_Posle/slika9.png" alt="Nameštaj" class="rounded-xl w-full h-40 object-cover hover-zoom"></a>
+    </div>
+  </div>
+</section>
+<!-- Video sekcija -->
+<section id="video" class="bg-white py-20 animate-fadeInUp">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">🎥 Video – Dubinsko pranje u akciji</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- Prvi video -->
+      <div class="rounded-xl overflow-hidden shadow-lg">
+        <iframe class="w-full h-64 md:h-80 rounded-xl" src="https://www.youtube.com/embed/AJVs4S07X-o"
+          title="YouTube video" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Drugi video -->
+      <div class="rounded-xl overflow-hidden shadow-lg">
+        <iframe class="w-full h-64 md:h-80 rounded-xl" src="https://www.youtube.com/embed/ApBuDDx0RCc"
+          title="YouTube video" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section id="recenzije" class="py-20 bg-gray-50 animate-fadeInUp">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">⭐ Šta naši klijenti kažu ⭐</h2>
+
+    <!-- Swiper container -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Recenzija 1 -->
+        <div
+          class="swiper-slide bg-gradient-to-r from-blue-50 to-white p-6 rounded-3xl shadow-lg transform transition hover:-translate-y-2 hover:shadow-2xl">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full mr-4"
+              alt="Marko J.">
+            <div>
+              <h3 class="font-semibold">Marko J.</h3>
+              <div class="flex text-yellow-400">
+                <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i
+                  data-lucide="star"></i><i data-lucide="star-half"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 italic relative pl-6">
+            <i data-lucide="quote" class="absolute left-0 top-0 w-5 h-5 text-blue-400"></i>
+            “Brzo i profesionalno čišćenje sofe. Prezadovoljan sam, preporuka svima!”
+          </p>
+        </div>
+
+        <!-- Recenzija 2 -->
+        <div
+          class="swiper-slide bg-gradient-to-r from-blue-50 to-white p-6 rounded-3xl shadow-lg transform transition hover:-translate-y-2 hover:shadow-2xl">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/45.jpg" class="w-12 h-12 rounded-full mr-4"
+              alt="Jelena S.">
+            <div>
+              <h3 class="font-semibold">Jelena S.</h3>
+              <div class="flex text-yellow-400">
+                <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i
+                  data-lucide="star"></i><i data-lucide="star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 italic relative pl-6">
+            <i data-lucide="quote" class="absolute left-0 top-0 w-5 h-5 text-blue-400"></i>
+            “Auto enterijer je kao nov! Profesionalci, čisto i precizno.”
+          </p>
+        </div>
+
+        <!-- Recenzija 3 -->
+        <div
+          class="swiper-slide bg-gradient-to-r from-blue-50 to-white p-6 rounded-3xl shadow-lg transform transition hover:-translate-y-2 hover:shadow-2xl">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/men/76.jpg" class="w-12 h-12 rounded-full mr-4"
+              alt="Petar K.">
+            <div>
+              <h3 class="font-semibold">Petar K.</h3>
+              <div class="flex text-yellow-400">
+                <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i
+                  data-lucide="star"></i><i data-lucide="star-half"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 italic relative pl-6">
+            <i data-lucide="quote" class="absolute left-0 top-0 w-5 h-5 text-blue-400"></i>
+            “Brza reakcija i odličan kvalitet pranja tepiha. Svaka preporuka!”
+          </p>
+        </div>
+
+        <!-- Recenzija 4 -->
+        <div
+          class="swiper-slide bg-gradient-to-r from-blue-50 to-white p-6 rounded-3xl shadow-lg transform transition hover:-translate-y-2 hover:shadow-2xl">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/33.jpg" class="w-12 h-12 rounded-full mr-4"
+              alt="Ana L.">
+            <div>
+              <h3 class="font-semibold">Ana L.</h3>
+              <div class="flex text-yellow-400">
+                <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i
+                  data-lucide="star"></i><i data-lucide="star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 italic relative pl-6">
+            <i data-lucide="quote" class="absolute left-0 top-0 w-5 h-5 text-blue-400"></i>
+            “Izvanredno iskustvo, sve pohvale!”
+          </p>
+        </div>
+
+        <!-- Recenzija 5 -->
+        <div
+          class="swiper-slide bg-gradient-to-r from-blue-50 to-white p-6 rounded-3xl shadow-lg transform transition hover:-translate-y-2 hover:shadow-2xl">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/men/40.jpg" class="w-12 h-12 rounded-full mr-4"
+              alt="Vladimir T.">
+            <div>
+              <h3 class="font-semibold">Vladimir T.</h3>
+              <div class="flex text-yellow-400">
+                <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i
+                  data-lucide="star"></i><i data-lucide="star-half"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 italic relative pl-6">
+            <i data-lucide="quote" class="absolute left-0 top-0 w-5 h-5 text-blue-400"></i>
+            “Profesionalno, brzo i čisto. Svaka preporuka!”
+          </p>
+        </div>
+
+        <!-- Recenzija 6 -->
+        <div
+          class="swiper-slide bg-gradient-to-r from-blue-50 to-white p-6 rounded-3xl shadow-lg transform transition hover:-translate-y-2 hover:shadow-2xl">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/28.jpg" class="w-12 h-12 rounded-full mr-4"
+              alt="Marija P.">
+            <div>
+              <h3 class="font-semibold">Marija P.</h3>
+              <div class="flex text-yellow-400">
+                <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i
+                  data-lucide="star"></i><i data-lucide="star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 italic relative pl-6">
+            <i data-lucide="quote" class="absolute left-0 top-0 w-5 h-5 text-blue-400"></i>
+            “Kvalitet je na vrhunskom nivou, prezadovoljna!”
+          </p>
+        </div>
+
+        <!-- Recenzija 7 -->
+        <div
+          class="swiper-slide bg-gradient-to-r from-blue-50 to-white p-6 rounded-3xl shadow-lg transform transition hover:-translate-y-2 hover:shadow-2xl">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/men/22.jpg" class="w-12 h-12 rounded-full mr-4"
+              alt="Milan R.">
+            <div>
+              <h3 class="font-semibold">Milan R.</h3>
+              <div class="flex text-yellow-400">
+                <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i
+                  data-lucide="star"></i><i data-lucide="star-half"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 italic relative pl-6">
+            <i data-lucide="quote" class="absolute left-0 top-0 w-5 h-5 text-blue-400"></i>
+            “Vrlo profesionalno i brzo. Sve pohvale!”
+          </p>
+        </div>
+
+        <!-- Recenzija 8 -->
+        <div
+          class="swiper-slide bg-gradient-to-r from-blue-50 to-white p-6 rounded-3xl shadow-lg transform transition hover:-translate-y-2 hover:shadow-2xl">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/men/23.jpg" class="w-12 h-12 rounded-full mr-4"
+              alt="Aleksandar V.">
+            <div>
+              <h3 class="font-semibold">Aleksandar V.</h3>
+              <div class="flex text-yellow-400">
+                <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i
+                  data-lucide="star"></i><i data-lucide="star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 italic relative pl-6">
+            <i data-lucide="quote" class="absolute left-0 top-0 w-5 h-5 text-blue-400"></i>
+            “Izuzetno zadovoljstvo uslugom, preporuka!”
+          </p>
+        </div>
+
+        <!-- Recenzija 9 -->
+        <div
+          class="swiper-slide bg-gradient-to-r from-blue-50 to-white p-6 rounded-3xl shadow-lg transform transition hover:-translate-y-2 hover:shadow-2xl">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/50.jpg" class="w-12 h-12 rounded-full mr-4"
+              alt="Snežana D.">
+            <div>
+              <h3 class="font-semibold">Snežana D.</h3>
+              <div class="flex text-yellow-400">
+                <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i
+                  data-lucide="star"></i><i data-lucide="star-half"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 italic relative pl-6">
+            <i data-lucide="quote" class="absolute left-0 top-0 w-5 h-5 text-blue-400"></i>
+            “Sve je čisto i uredno, prezadovoljna!”
+          </p>
+        </div>
+
+        <!-- Recenzija 10 -->
+        <div
+          class="swiper-slide bg-gradient-to-r from-blue-50 to-white p-6 rounded-3xl shadow-lg transform transition hover:-translate-y-2 hover:shadow-2xl">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/men/11.jpg" class="w-12 h-12 rounded-full mr-4"
+              alt="Nikola P.">
+            <div>
+              <h3 class="font-semibold">Nikola P.</h3>
+              <div class="flex text-yellow-400">
+                <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i
+                  data-lucide="star"></i><i data-lucide="star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 italic relative pl-6">
+            <i data-lucide="quote" class="absolute left-0 top-0 w-5 h-5 text-blue-400"></i>
+            “Sve preporuke, posao odrađen perfektno!”
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Navigacija -->
+      <div class="swiper-pagination mt-6"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section id="faq" class="py-20 max-w-6xl mx-auto px-6 animate-fadeInUp">
+  <h2 class="text-3xl font-bold text-center mb-12">❓ Česta pitanja ❓</h2>
+  <div class="space-y-6">
+    <div>
+      <h3 class="font-semibold text-xl mb-2">Koliko traje dubinsko pranje nameštaja?</h3>
+      <p>U proseku 1-2 sata, zavisno od veličine i tipa nameštaja.</p>
+    </div>
+    <div>
+      <h3 class="font-semibold text-xl mb-2">Da li koristite hemikalije?</h3>
+      <p>Sve hemikalije su bezbedne za decu i kućne ljubimce, ekološki prihvatljive.</p>
+    </div>
+    <div>
+      <h3 class="font-semibold text-xl mb-2">Koliko unapred treba zakazati?</h3>
+      <p>Preporučujemo da zakazujete 1-3 dana unapred, zavisno od termina.</p>
+    </div>
+    <div>
+      <h3 class="font-semibold text-xl mb-2">Da li dolazite na adresu?</h3>
+      <p>Da, dolazimo direktno na vašu adresu. Minimalna cena dolaska je 2500 RSD.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Kontakt -->
+<section id="kontakt" class="py-20 max-w-6xl mx-auto px-6">
+  <h2 class="text-3xl font-bold text-center mb-12">Kontakt</h2>
+  <div class="text-center space-y-4 text-lg">
+    <p>
+      <img src="./Slike/Viber_WhatApp_ikone/whatsapplogo.png" alt="WhatsApp" class="social-icon inline w-6 h-6 mr-2 align-middle">
+      <img src="./Slike/Viber_WhatApp_ikone/viberlogo.png" alt="Viber" class="social-icon inline w-6 h-6 mr-2 align-middle">
+      063/820-0243
+    </p>
+   <p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail" class="inline w-6 h-6 mr-2 align-middle">
+      <a href="mailto:pureewash@gmail.com" class="hover:underline">pureewash@gmail.com</a>
+    </p>
+    <p><i data-lucide="message-circle" class="inline w-6 h-6 text-blue-600"></i> Viber i WhatsApp dostupni na isti broj</p>
+  </div>
+</section>
+
+<footer class="bg-blue-600 text-white text-center py-6 mt-12">
+  &copy; <span id="pw-year"></span> PureWash. Sva prava zadržana.
+</footer>
+
+<!-- Back to top -->
+<div id="back-to-top" class="back-to-top">⬆️</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="./JS/js_kod.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script>
+
+  const swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }
+  });
+</script>
+
+</body>
+</html>
