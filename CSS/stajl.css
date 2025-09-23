@@ -17,10 +17,9 @@
     z-index: 50;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   }
-
   .back-to-top:hover { background-color: #2563EB; }
 
-  /* Stilizacija za Elfsight Google Reviews widget */
+    /* Stilizacija za Elfsight Google Reviews widget */
     #recenzije .elfsight-app-ff96c733-6832-427f-b340-cd89cb0dc14b {
       max-width: 100%;
       margin: 0 auto;
