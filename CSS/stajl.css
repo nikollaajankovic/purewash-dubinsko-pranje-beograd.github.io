@@ -17,4 +17,33 @@
     z-index: 50;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   }
+
   .back-to-top:hover { background-color: #2563EB; }
+
+  /* Stilizacija za Elfsight Google Reviews widget */
+    #recenzije .elfsight-app-ff96c733-6832-427f-b340-cd89cb0dc14b {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 1rem;
+      box-sizing: border-box;
+      border-radius: 2rem;
+      /* zaobljene ivice */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      /* mekani shadow */
+      background-color: #ffffff;
+      /* bela pozadina da se istakne */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  
+    /* Efekat hover */
+    #recenzije .elfsight-app-ff96c733-6832-427f-b340-cd89cb0dc14b:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+    }
+  
+    /* Responsivnost */
+    @media (min-width: 768px) {
+      #recenzije .elfsight-app-ff96c733-6832-427f-b340-cd89cb0dc14b {
+        padding: 2rem;
+      }
+    }
