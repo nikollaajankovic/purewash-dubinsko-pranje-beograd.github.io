@@ -195,7 +195,7 @@
   <div class="max-w-6xl mx-auto px-6">
     <h2 class="text-3xl font-bold text-center mb-12">Galerija – Pre i Posle</h2>
 
-    <div id="masonry-gallery" class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6"></div>
+    <div id="masonry-gallery" class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-5 space-y-6"></div>
   </div>
 </section>
 
@@ -222,7 +222,7 @@
       img.src = `./Slike/Pranje_Pre_Posle/${naziv}`;
       img.alt = "Dubinsko pranje – pre i posle";
       img.loading = "lazy";
-      img.className = "w-full h-100 object-contain transform group-hover:scale-105 transition-transform duration-300";
+      img.className = "w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-300";
 
       a.appendChild(img);
       gallery.appendChild(a);
