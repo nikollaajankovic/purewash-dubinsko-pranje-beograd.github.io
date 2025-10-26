@@ -195,34 +195,60 @@
   <div class="max-w-6xl mx-auto px-6">
     <h2 class="text-3xl font-bold text-center mb-12">Galerija – Pre i Posle</h2>
 
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 gallery">
-      <!-- Pojedinačna slika -->
-      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika1.png" class="group block overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
-        <img src="./Slike/Pranje_Pre_Posle/slika1.png" alt="Sofa" class="w-full h-50 object-cover transform group-hover:scale-105 transition-transform duration-300" />
-      </a>
-
-      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika2.png" class="group block overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
-        <img src="./Slike/Pranje_Pre_Posle/slika2.png" alt="Auto" class="w-auto h-auto object-cover transform group-hover:scale-105 transition-transform duration-300" />
-      </a>
-
-      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika3.png" class="group block overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
-        <img src="./Slike/Pranje_Pre_Posle/slika3.png" alt="Tepih" class="w-auto h-auto object-cover transform group-hover:scale-105 transition-transform duration-300" />
-      </a>
-
-      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika4.png" class="group block overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
-        <img src="./Slike/Pranje_Pre_Posle/slika4.png" alt="Stolica" class="w-full h-50 object-cover transform group-hover:scale-105 transition-transform duration-300" />
-      </a>
-
-      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika5.png" class="group block overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
-        <img src="./Slike/Pranje_Pre_Posle/slika5.png" alt="Dušek" class="w-full h-50 object-cover transform group-hover:scale-105 transition-transform duration-300" />
-      </a>
-
-      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika6.png" class="group block overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
-        <img src="./Slike/Pranje_Pre_Posle/slika6.png" alt="Dušek" class="w-full h-50 object-cover transform group-hover:scale-105 transition-transform duration-300" />
-      </a>
-    </div>
+    <div id="masonry-gallery" class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6"></div>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const slike = [
+      "slika1.png",
+      "slika2.png",
+      "slika3.png",
+      "slika4.png",
+      "slika5.png",
+      "slika6.png"
+    ];
+
+    const gallery = document.getElementById("masonry-gallery");
+
+    slike.forEach(naziv => {
+      const a = document.createElement("a");
+      a.href = `./Slike/Pranje_Pre_Posle/${naziv}`;
+      a.dataset.fancybox = "gallery";
+      a.className = "block w-full overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 opacity-0 transform translate-y-4 fade-in-item";
+
+      const img = document.createElement("img");
+      img.src = `./Slike/Pranje_Pre_Posle/${naziv}`;
+      img.alt = "Dubinsko pranje – pre i posle";
+      img.loading = "lazy";
+      img.className = "w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-300";
+
+      a.appendChild(img);
+      gallery.appendChild(a);
+    });
+
+    // Fade-in animacija
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-4');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-item').forEach(el => observer.observe(el));
+  });
+</script>
+
+<style>
+  /* Fade-in efekt */
+  .fade-in-item {
+    transition: all 0.6s ease-out;
+  }
+</style>
+
+
 
 <!-- Video sekcija -->
 <section id="video" class="bg-white py-20 animate-fadeInUp">
