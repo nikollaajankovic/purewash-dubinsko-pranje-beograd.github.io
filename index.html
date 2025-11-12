@@ -6,6 +6,7 @@
 <meta name="description" content="PureWash - profesionalno dubinsko pranje nameštaja, tepiha i auto enterijera u Beogradu.">
 <meta name="google-site-verification" content="aC380T_QXQs57-Lqvs9NSYDsx9QlRUgxU3In9ecPmik" />
 
+
 <title>PureWash - Dubinsko pranje</title>
 <!-- Open Graph -->
 <meta property="og:title" content="PureWash - Dubinsko pranje">
@@ -193,37 +194,61 @@
 
 
 <!-- Galerija -->
-<section id="galerija" class="bg-gray-100 py-20 animate-fadeInUp">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center mb-12">Galerija – Pre i Posle</h2>
-    <div class="grid md:grid-cols-3 gap-8 mb-12 gallery">
-      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika1.png"><img
-          src="./Slike/Pranje_Pre_Posle/slika1.png" alt="Sofa"
-          class="rounded-xl w-full h-50 object-cover hover-zoom"></a>
-      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika2.png"><img
-          src="./Slike/Pranje_Pre_Posle/slika2.png" alt="Auto"
-          class="rounded-xl w-full h-50 object-cover hover-zoom"></a>
-      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika3.png"><img
-          src="./Slike/Pranje_Pre_Posle/slika3.png" alt="Tepih"
-          class="rounded-xl w-full h-50 object-cover hover-zoom"></a>
-      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika4.png"><img
-          src="./Slike/Pranje_Pre_Posle/slika4.png" alt="Stolica"
-          class="rounded-xl w-full h-50 object-cover hover-zoom"></a>
-      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika5.png"><img
-          src="./Slike/Pranje_Pre_Posle/slika5.png" alt="Dušek"
-          class="rounded-xl w-full h-50 object-cover hover-zoom"></a>
-      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika6.png"><img
-          src="./Slike/Pranje_Pre_Posle/slika6.png" alt="Nameštaj"
-          class="rounded-xl w-full h-50 object-cover hover-zoom"></a>
-      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika7.png"><img
-          src="./Slike/Pranje_Pre_Posle/slika7.png" alt="Nameštaj"
-          class="rounded-xl w-full h-50 object-cover hover-zoom"></a>
-      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika8.png"><img
-          src="./Slike/Pranje_Pre_Posle/slika8.png" alt="Nameštaj"
-          class="rounded-xl w-full h-50 object-cover hover-zoom"></a>
-      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika9.png"><img
-          src="./Slike/Pranje_Pre_Posle/slika9.png" alt="Nameštaj"
-          class="rounded-xl w-full h-50 object-cover hover-zoom"></a>
+
+<!-- Ako već koristiš Tailwind, ovaj link preskoči -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Fancybox za lightbox (uvećanje slike) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+<section id="galerija" class="bg-gray-100 py-12">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <h2 class="text-3xl font-bold text-center mb-10">Galerija – Pre i Posle</h2>
+
+    <!-- Galerija -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika1.png" class="block rounded-xl overflow-hidden">
+        <img src="./Slike/Pranje_Pre_Posle/slika1.png" alt="Sofa" loading="lazy"
+          class="w-full h-auto object-cover transition-transform duration-300 hover:scale-105" />
+      </a>
+
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika2.png" class="block rounded-xl overflow-hidden">
+        <img src="./Slike/Pranje_Pre_Posle/slika2.png" alt="Auto" loading="lazy"
+          class="w-full h-auto object-cover transition-transform duration-300 hover:scale-105" />
+      </a>
+
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika3.png" class="block rounded-xl overflow-hidden">
+        <img src="./Slike/Pranje_Pre_Posle/slika3.png" alt="Tepih" loading="lazy"
+          class="w-full h-auto object-cover transition-transform duration-300 hover:scale-105" />
+      </a>
+
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika4.png" class="block rounded-xl overflow-hidden">
+        <img src="./Slike/Pranje_Pre_Posle/slika4.png" alt="Stolica" loading="lazy"
+          class="w-full h-auto object-cover transition-transform duration-300 hover:scale-105" />
+      </a>
+
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika5.png" class="block rounded-xl overflow-hidden">
+        <img src="./Slike/Pranje_Pre_Posle/slika5.png" alt="Dušek" loading="lazy"
+          class="w-full h-auto object-cover transition-transform duration-300 hover:scale-105" />
+      </a>
+
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika6.png" class="block rounded-xl overflow-hidden">
+        <img src="./Slike/Pranje_Pre_Posle/slika6.png" alt="Nameštaj" loading="lazy"
+          class="w-full h-auto object-cover transition-transform duration-300 hover:scale-105" />
+      </a>
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika7.png" class="block rounded-xl overflow-hidden">
+        <img src="./Slike/Pranje_Pre_Posle/slika7.png" alt="Nameštaj" loading="lazy"
+          class="w-full h-auto object-cover transition-transform duration-300 hover:scale-105" />
+      </a>
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika8.png" class="block rounded-xl overflow-hidden">
+        <img src="./Slike/Pranje_Pre_Posle/slika8.png" alt="Nameštaj" loading="lazy"
+          class="w-full h-auto object-cover transition-transform duration-300 hover:scale-105" />
+      </a>
+      <a data-fancybox="gallery" href="./Slike/Pranje_Pre_Posle/slika9.png" class="block rounded-xl overflow-hidden">
+        <img src="./Slike/Pranje_Pre_Posle/slika9.png" alt="Nameštaj" loading="lazy"
+          class="w-full h-auto object-cover transition-transform duration-300 hover:scale-105" />
+      </a>
     </div>
   </div>
 </section>
