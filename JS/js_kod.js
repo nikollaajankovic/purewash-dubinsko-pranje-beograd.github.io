@@ -8,7 +8,7 @@
 
 
     { coords: [44.81622, 20.39465], name: 'Novi Beograd' },
-    { coords: [44.85287, 20.36925], name: 'Zemun' }
+    
   ];
 const markerGroup = L.featureGroup();
   markers.forEach(m => {
@@ -48,4 +48,5 @@ map.fitBounds(markerGroup.getBounds(), { padding: [50, 50] });
     Thumbs: { autoStart: true },
     Toolbar: { display: ["close", "thumbs", "zoom"] }
   });
+
   document.getElementById("pw-year").textContent = new Date().getFullYear();
